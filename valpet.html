@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SC Valpet SA - producator de pavaje, borduri, rigole, jardiniere, boltari si produse de balastiera din Targu Mures.">
+    <title>Valpet - Materiale de Construcție Prefabricate | Târgu Mureș</title>
+    
+    <style>
+        /* ========================================
+           VALPET.RO REDESIGN 2026
+           TEMA: ROSU, GRI, NEGRU (din logo)
+           ========================================
+           
+           COLOR PALETTE (din logo Valpet):
+           - Primary Red: #E31E24 (roșu principal din logo)
+           - Dark Red: #A71930 (roșu închis - accente)
+           - Primary Dark: #1A1A1A (negru - headers/footer)
+           - Light Gray: #F2F2F2 (gri ușor - backgrounds)
+           - Medium Gray: #808080 (gri mediu - text secundar)
+           - Dark Gray: #3A3A3A (gri închis - text)
+           - White: #FFFFFF (alb - card backgrounds)
+           
+           FONTS:
+           - Headings: 'Arial', 'Helvetica', sans-serif (modern, bold)
+           - Body: 'Segoe UI', 'Arial', sans-serif (legibil)
+           
+           SECTIONS MAP:
+           - Header/Nav → Acasă + main menu
+           - Hero → Company positioning
+           - Despre noi → Full history + company milestones
+           - Servicii → Producție, Proiectare, Consultanță, Transport, Montaj, Întreținere
+           - Produse → Pavaje, Borduri, Rigole, Jardiniere, Boltari, Produse Balastieră
+           - Contact → Address, phone, fax, email, contact form
+           - Footer → Quick links, copyright
+           ======================================== */
+
+        :root {
+            --color-primary-red: #E31E24;
+            --color-dark-red: #A71930;
+            --color-primary-dark: #1A1A1A;
+            --color-light-gray: #F2F2F2;
+            --color-medium-gray: #808080;
+            --color-dark-gray: #3A3A3A;
+            --color-white: #FFFFFF;
+            --color-border: #E0E0E0;
+            
+            --font-primary: 'Arial', 'Helvetica', sans-serif;
+            --font-secondary: 'Segoe UI', 'Arial', sans-serif;
+            --font-size-base: 16px;
+            --line-height-base: 1.6;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            --transition-fast: 0.2s ease-out;
+            --transition-base: 0.3s ease-out;
+            --transition-slow: 0.5s ease-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
+            color: var(--color-dark-gray);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-white);
+            border-bottom: 3px solid var(--color-primary-red);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-primary-red);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-primary);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            color: var(--color-primary-dark);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-dark-gray);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-base);
+            font-family: var(--font-primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-primary-red);
+            transition: width var(--transition-base);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--color-primary-red);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 3px;
+            background-color: var(--color-primary-dark);
+            transition: all var(--transition-fast);
+            border-radius: 2px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+            background: linear-gradient(135deg, var(--color-primary-red) 0%, var(--color-dark-red) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -1px;
+            font-family: var(--font-primary);
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            font-weight: 400;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background-color: var(--color-white);
+            color: var(--color-primary-red);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--color-white);
+            border-radius: 0;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-primary);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(227, 30, 36, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width var(--transition-fast), height var(--transition-fast);
+        }
+
+        .cta-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-primary:hover {
+            background-color: var(--color-light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background-color: transparent;
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--color-white);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            margin-left: var(--spacing-md);
+            font-family: var(--font-primary);
+        }
+
+        .cta-secondary:hover {
+            background-color: var(--color-white);
+            color: var(--color-primary-red);
+            transform: translateY(-3px);
+        }
+
+        /* ========== GENERIC SECTIONS ========== */
+        section {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: var(--color-primary-dark);
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            font-family: var(--font-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary-red), var(--color-dark-red));
+            margin: var(--spacing-md) auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-medium-gray);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.8;
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .fade-in-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ========== DESPRE NOI SECTION ========== */
+        #about {
+            background-color: var(--color-light-gray);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: start;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e31e24 0%, #a71930 100%);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 8px solid var(--color-primary-red);
+        }
+
+        .about-image::before {
+            content: '🏭';
+            font-size: 6rem;
+            opacity: 0.3;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .about-content p {
+            color: var(--color-medium-gray);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.9;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-xl);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-primary-red) 0%, var(--color-dark-red) 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: var(--color-primary-red);
+            border: 4px solid var(--color-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--color-primary-red);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-primary);
+        }
+
+        .timeline-text {
+            font-size: 0.95rem;
+            color: var(--color-medium-gray);
+            line-height: 1.7;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .quality-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 0;
+            border-left: 5px solid var(--color-primary-red);
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .quality-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(227, 30, 36, 0.15);
+            border-left-color: var(--color-dark-red);
+        }
+
+        .quality-card h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .quality-card p {
+            font-size: 0.9rem;
+            color: var(--color-medium-gray);
+            line-height: 1.6;
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        #services {
+            background-color: var(--color-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-border);
+            border-radius: 0;
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary-red), var(--color-dark-red));
+            transform: translateX(-100%);
+            transition: transform var(--transition-base);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(227, 30, 36, 0.15);
+            border-color: var(--color-primary-red);
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--color-medium-gray);
+            line-height: 1.8;
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        #products {
+            background-color: var(--color-light-gray);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--color-primary-red);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(227, 30, 36, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #e31e24 0%, #a71930 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            overflow: hidden;
+            position: relative;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .product-content p {
+            font-size: 0.9rem;
+            color: var(--color-medium-gray);
+            line-height: 1.8;
+            flex-grow: 1;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .product-cta {
+            align-self: flex-start;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background-color: var(--color-primary-red);
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: inline-block;
+            font-family: var(--font-primary);
+        }
+
+        .product-cta:hover {
+            background-color: var(--color-dark-red);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(227, 30, 36, 0.3);
+        }
+
+        /* ========== QUARRY PRODUCTS SECTION ========== */
+        #quarry {
+            background-color: var(--color-white);
+        }
+
+        .quarry-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .quarry-item {
+            background: linear-gradient(135deg, #f9f9f9 0%, var(--color-light-gray) 100%);
+            padding: var(--spacing-lg);
+            border-left: 6px solid var(--color-primary-red);
+            border-radius: 0;
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .quarry-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.15);
+            background: linear-gradient(135deg, var(--color-primary-red), var(--color-dark-red));
+        }
+
+        .quarry-item:hover h4,
+        .quarry-item:hover p {
+            color: var(--color-white);
+        }
+
+        .quarry-item h4 {
+            font-size: 1.15rem;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-sm);
+            transition: color var(--transition-base);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .quarry-item p {
+            font-size: 0.9rem;
+            color: var(--color-medium-gray);
+            line-height: 1.7;
+            transition: color var(--transition-base);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        #contact {
+            background-color: var(--color-light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            color: var(--color-primary-red);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 700;
+            font-family: var(--font-primary);
+        }
+
+        .contact-item {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-label {
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--spacing-sm);
+            display: block;
+            font-family: var(--font-primary);
+        }
+
+        .contact-value {
+            color: var(--color-medium-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .contact-value a {
+            color: var(--color-primary-red);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            font-weight: 600;
+        }
+
+        .contact-value a:hover {
+            color: var(--color-dark-red);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background-color: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--color-primary-red);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.95rem;
+            font-family: var(--font-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid var(--color-border);
+            border-radius: 0;
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            transition: all var(--transition-base);
+            color: var(--color-dark-gray);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-red);
+            box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--color-primary-red);
+            color: var(--color-white);
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            width: 100%;
+            border-radius: 0;
+            font-family: var(--font-primary);
+        }
+
+        .form-submit:hover {
+            background-color: var(--color-dark-red);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(227, 30, 36, 0.3);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            display: none;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: 0;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-left: 5px solid #2e7d32;
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: #ffebee;
+            color: #c62828;
+            border-left: 5px solid #c62828;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, #2a2a2a 100%);
+            color: var(--color-white);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            border-top: 4px solid var(--color-primary-red);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary-red);
+            font-family: var(--font-primary);
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary-red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: var(--spacing-md) var(--spacing-md);
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background-color: var(--color-white);
+                border-top: 2px solid var(--color-primary-red);
+                padding: var(--spacing-md) 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.mobile-active {
+                display: flex;
+            }
+
+            nav li {
+                border-bottom: 1px solid var(--color-border);
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: var(--spacing-md) var(--spacing-lg);
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+                background-color: var(--color-primary-red);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+                background-color: var(--color-primary-red);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-secondary {
+                display: block;
+                margin-left: 0;
+                margin-top: var(--spacing-md);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .services-grid,
+            .products-grid,
+            .quarry-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                padding: var(--spacing-md) var(--spacing-lg);
+                font-size: 0.9rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== ACCESSIBILITY & PRINT ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media print {
+            header,
+            footer,
+            .cta-primary,
+            .cta-secondary {
+                display: none;
+            }
+
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+        }
+
+        /* ========== UTILITY CLASSES ========== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">VAL<span>PET</span></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="nav-link active">Acasă</a></li>
+                    <li><a href="#about" class="nav-link">Despre noi</a></li>
+                    <li><a href="#services" class="nav-link">Servicii</a></li>
+                    <li><a href="#products" class="nav-link">Produse</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Materiale de Construcție Prefabricate</h1>
+                <p class="tagline">Valpet – 30+ ani de experiență în producția și furnizarea elementelor de beton prefabricat de cea mai înaltă calitate</p>
+                <a href="#products" class="cta-primary">Descoperir Produse</a>
+                <a href="#contact" class="cta-secondary">Contactați-ne</a>
+            </div>
+        </section>
+
+        <!-- ========== DESPRE NOI SECTION ========== -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">Despre Valpet</h2>
+                <p class="section-subtitle">Istoria și evoluția unei companii dedicate excelentei în materiale de construcție</p>
+
+                <div class="about-grid">
+                    <div class="about-content fade-in">
+                        <h3>Istoria Companiei</h3>
+                        <p>
+                            SC Valpet SA a fost înființată în <strong>1993</strong> și s-a remarcat rapid ca una dintre firmele importante din județul Mureș. Cu o dedicare neabătută faţă de calitate și inovație, compania a devenit lider regional în domeniul materialelor de construcție prefabricate.
+                        </p>
+                        <p>
+                            Entre <strong>1998 și 1999</strong>, Valpet a cunoscut o fază decisivă de creștere și dezvoltare. În această perioadă, compania a achiziționat stația de sortare și a extins semnificativ capacitățile de producție, consolidând baza pentru o evoluție exponențială.
+                        </p>
+                        <p>
+                            În <strong>2001</strong>, compania a făcut un salt important pe piața construcțiilor prin investiția în fabrica OMAG TRONIC S 22, o linie de producție de ultimă generație. Această investiție a marcat debutul erei moderne de producție și a poziționat Valpet printre companiile de top din regiune.
+                        </p>
+                        <p>
+                            Astazi, cu <strong>20+ ani de experiență în exploatarea agregatelor minerale și 14+ ani în fabricarea și vânzarea elementelor de beton prefabricat</strong>, Valpet rămâne angajată în furnizarea de soluții constructive superioare care respectă cele mai înalte standarde de calitate și durabilitate.
+                        </p>
+                    </div>
+
+                    <div class="about-image fade-in">
+                        <!-- Placeholder pentru imagine - poate fi înlocuită cu imagine reală -->
+                        Imagine fabrica Valpet
+                    </div>
+                </div>
+
+                <h3 style="margin-top: var(--spacing-2xl); color: var(--color-primary-red); font-family: var(--font-primary); font-weight: 700;">Istoria Cronologică</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); margin-top: var(--spacing-xl);">
+                    <div class="fade-in">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1993</div>
+                                <p class="timeline-text">Înființarea SC Valpet SA și debut pe piața materialelor de construcție din județul Mureș</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">1998–1999</div>
+                                <p class="timeline-text">Achiziția stației de sortare și faza decisivă de creștere și dezvoltare, consolidând capacitățile de producție</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2001</div>
+                                <p class="timeline-text">Investiție în fabrica OMAG TRONIC S 22 – salt important către producția de ultimă generație</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">Prezent</div>
+                                <p class="timeline-text">Lider regional cu standarde internaționale de calitate, inovație și serviciu pentru clienți</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in">
+                        <h4 style="font-size: 1.2rem; color: var(--color-primary-red); margin-bottom: var(--spacing-md); font-weight: 700; font-family: var(--font-primary);">Clasificare și Standarde</h4>
+                        <div class="quality-grid" style="margin-top: var(--spacing-md);">
+                            <div class="quality-card fade-in-scale">
+                                <h4>Clase de Calitate</h4>
+                                <p>Elementele prefabricate sunt clasificate în <strong>Clasa I</strong> și <strong>Clasa II</strong>, în conformitate cu standardele de producție</p>
+                            </div>
+                            <div class="quality-card fade-in-scale">
+                                <h4>Forme și Dimensiuni</h4>
+                                <p>Gamă variată de forme și dimensiuni customize pentru fiecare aplicație specifică</p>
+                            </div>
+                            <div class="quality-card fade-in-scale">
+                                <h4>Palete de Culori</h4>
+                                <p>Culori multiple disponibile: gri, galben, verde, albastru, roșu, negru și alții</p>
+                            </div>
+                            <div class="quality-card fade-in-scale">
+                                <h4>Grosimi Variate</h4>
+                                <p>Grosimi adaptate la necesitățile tehnice și estetice ale proiectului</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SERVICES SECTION ========== -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Servicii Profesionale</h2>
+                <p class="section-subtitle">Soluții complete de la proiectare la montaj și întreținere</p>
+
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <span class="service-icon">🏭</span>
+                        <h3>Producție</h3>
+                        <p>Producția de elemente prefabricate din beton folosind tehnologia vibropresare, garantând calitate și precizie dimensionale. Fabrica OMAG TRONIC S 22 asigură standarde internaționale.</p>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <span class="service-icon">📐</span>
+                        <h3>Proiectare</h3>
+                        <p>Servicii complete de design și proiectare pentru lucrări de construcție. Echipa noastră tehnică colaborează cu inginerii dumneavoastră pentru soluții optimale.</p>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <span class="service-icon">💡</span>
+                        <h3>Consultanță</h3>
+                        <p>Consultanță specializată privind alegerea tipului și caracteristicilor produselor, designul optim, instalarea și întreținerea elementelor prefabricate.</p>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <span class="service-icon">🚚</span>
+                        <h3>Transport</h3>
+                        <p>Transport profesional cu flota proprie de vehicule moderne și echipe specialiste. Asigurăm livrarea sigură și în timp util la locația proiectului.</p>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <span class="service-icon">🔨</span>
+                        <h3>Montaj</h3>
+                        <p>Instalație profesională realizată de specialiști calificați. Montajul este executat conform desenelor de proiect, garantând calitate și durabilitate.</p>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <span class="service-icon">🛡️</span>
+                        <h3>Întreținere</h3>
+                        <p>Servicii de întreținere post-instalare pentru a asigura conservarea calității și aspectului lucrărilor executate pe termen lung.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PRODUCTS SECTION ========== -->
+        <section id="products">
+            <div class="container">
+                <h2 class="section-title">Produse Prefabricate</h2>
+                <p class="section-subtitle">Gamă completă de elemente de beton de calitate superioară pentru orice aplicație</p>
+
+                <div class="products-grid">
+                    <!-- PAVAJE -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">🪨</div>
+                        <div class="product-content">
+                            <h3>Pavaje</h3>
+                            <p>Pavaje din beton pentru spații exterioare. Gamă variată de forme, culori și design. Ideale pentru curți, grădini, spații industriale și piețe. Rezistente la uzură și condiții meteo.</p>
+                            <a href="#contact" class="product-cta">Solicita Ofertă</a>
+                        </div>
+                    </div>
+
+                    <!-- BORDURI -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">📏</div>
+                        <div class="product-content">
+                            <h3>Borduri</h3>
+                            <p>Borduri din beton pentru delimitarea și consolidarea spațiilor. Disponibile în multiple dimensiuni și culori (gri, galben, verde, albastru, roșu, negru). Garanție 5 ani. Rezistente la îngheț și degivrare.</p>
+                            <a href="#contact" class="product-cta">Solicita Ofertă</a>
+                        </div>
+                    </div>
+
+                    <!-- RIGOLE -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">💧</div>
+                        <div class="product-content">
+                            <h3>Rigole</h3>
+                            <p>Rigole de preluare a apelor pluviale. Dimensiuni standard 450x100 mm, disponibile în mai multe culori. Rezistente la degivrare cu garanție de 5 ani. Compatibile cu diverse tipuri de borduri.</p>
+                            <a href="#contact" class="product-cta">Solicita Ofertă</a>
+                        </div>
+                    </div>
+
+                    <!-- JARDINIERE -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">🌿</div>
+                        <div class="product-content">
+                            <h3>Jardiniere</h3>
+                            <p>Jardiniere din beton pentru amenajări exterioare. Ideale pentru grădini, parcuri, străzi și spații comerciale. Rezistente și estetice. Perfecte pentru aranjamente florale și delimitarea spațiilor verzi.</p>
+                            <a href="#contact" class="product-cta">Solicita Ofertă</a>
+                        </div>
+                    </div>
+
+                    <!-- BOLTARI -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">🧱</div>
+                        <div class="product-content">
+                            <h3>Boltari</h3>
+                            <p>Boltari din beton cu rezistență ridicată și calitate superioară. Dimensiuni exacte pentru realizarea rapidă și precisă a lucrărilor. Utilizați în diverse tipuri de construcții.</p>
+                            <a href="#contact" class="product-cta">Solicita Ofertă</a>
+                        </div>
+                    </div>
+
+                    <!-- PRODUSE BALASTIERA -->
+                    <div class="product-card fade-in-scale">
+                        <div class="product-image">⛏️</div>
+                        <div class="product-content">
+                            <h3>Produse Balastieră</h3>
+                            <p>Gamă completă de agregate minerale și produse de quarry. Disponibile în mărimea și compoziția necesară pentru diverse aplicații de construcție.</p>
+                            <a href="#quarry" class="product-cta">Vezi Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== QUARRY PRODUCTS SECTION ========== -->
+        <section id="quarry">
+            <div class="container">
+                <h2 class="section-title">Produse Balastieră</h2>
+                <p class="section-subtitle">Agregate minerale de calitate pentru toate aplicațiile de construcție</p>
+
+                <div class="quarry-list">
+                    <div class="quarry-item fade-in">
+                        <h4>Criblură Concasată</h4>
+                        <p>Piatră concasată de diferite granulometrii, ideală pentru fundații, balastaje și subbaze. Utilizată în drumuri, parcări și lucrări de construcție.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Sort</h4>
+                        <p>Material sortat după granulometrie, perfect pentru betoane și mortare. Disponibil în diverse fracții conform standardelor de construcție.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Material Antifisură</h4>
+                        <p>Material special conceput pentru prevenirea fisurilor în structuri de beton. Utilizat ca adaos în mixturi de beton pentru stabilitate și durabilitate.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Nisip Sedimentat</h4>
+                        <p>Nisip de calitate superioară, ideal pentru mortare, betoane și lucrări de finisare. Granulometrie uniformă și compoziție controlată.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Refuz de Ciur</h4>
+                        <p>Material fin rezultat din procesul de ciuruire, utilizabil în diverse aplicații de construcție și drumuri. Disponibil în cantități mari.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Bolovani</h4>
+                        <p>Pietri naturale în diverse mărimi, utilizate pentru decorații, drenaje și consolidări. Material durabil și esthetic.</p>
+                    </div>
+
+                    <div class="quarry-item fade-in">
+                        <h4>Balast</h4>
+                        <p>Balast de calitate în diverse granulometrii, ideal pentru fundații de drumuri, cai ferate și lucrări de infrastructură. Material robust și stabil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact și Oferte</h2>
+                <p class="section-subtitle">Contactați-ne pentru informații, oferte sau servicii de consultanță</p>
+
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <h3>Informații Companie</h3>
+
+                        <div class="contact-item">
+                            <span class="contact-label">📍 Adresa:</span>
+                            <div class="contact-value">
+                                Str. Depozitelor nr. 4<br>
+                                540198, Târgu Mureș<br>
+                                Jud. Mureș, România
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">📞 Telefon:</span>
+                            <div class="contact-value">
+                                <a href="tel:+40265267823">0265-267.823</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">📠 Fax:</span>
+                            <div class="contact-value">
+                                0265-306.971
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">✉️ Email:</span>
+                            <div class="contact-value">
+                                <a href="mailto:office@valpet.ro">office@valpet.ro</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item" style="margin-top: var(--spacing-lg);">
+                            <span class="contact-label">⏰ Program de lucru:</span>
+                            <div class="contact-value">
+                                Luni - Vineri: 8:00 - 17:00<br>
+                                Sâmbătă: 9:00 - 13:00<br>
+                                Duminică: Inchis
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in">
+                        <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/mbjngpyk">
+                            <div id="formMessage" class="form-message"></div>
+
+                            <div class="form-group">
+                                <label for="name">Nume complet *</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product">Produs de interes *</label>
+                                <select id="product" name="product" required aria-required="true">
+                                    <option value="">Selectați un produs...</option>
+                                    <option value="pavaje">Pavaje</option>
+                                    <option value="borduri">Borduri</option>
+                                    <option value="rigole">Rigole</option>
+                                    <option value="jardiniere">Jardiniere</option>
+                                    <option value="boltari">Boltari</option>
+                                    <option value="produse_balastiera">Produse Balastieră</option>
+                                    <option value="consultanta">Consultanță</option>
+                                    <option value="transport">Transport</option>
+                                    <option value="montaj">Montaj</option>
+                                    <option value="altul">Altul</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Mesaj *</label>
+                                <textarea id="message" name="message" required aria-required="true" placeholder="Descrieți detaliile cererii dumneavoastră..."></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit">Trimite Cerere</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Valpet</h4>
+                <p>Lider regional în materiale de construcție prefabricate și agregate minerale din 1993.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigare Rapidă</h4>
+                <ul>
+                    <li><a href="#home">Acasă</a></li>
+                    <li><a href="#about">Despre noi</a></li>
+                    <li><a href="#services">Servicii</a></li>
+                    <li><a href="#products">Produse</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacte</h4>
+                <ul>
+                    <li><a href="tel:+40265267823">0265-267.823</a></li>
+                    <li><a href="mailto:office@valpet.ro">office@valpet.ro</a></li>
+                    <li>Str. Depozitelor nr. 4<br>Târgu Mureș, Mureș</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Servicii</h4>
+                <ul>
+                    <li><a href="#services">Producție</a></li>
+                    <li><a href="#services">Transport</a></li>
+                    <li><a href="#services">Montaj</a></li>
+                    <li><a href="#services">Consultanță</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SC Valpet SA. Toate drepturile rezervate. | Materiale de construcție prefabricate | Târgu Mureș, România</p>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ========== MOBILE MENU TOGGLE ==========
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('mobile-active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('mobile-active');
+            });
+        });
+
+        // ========== ACTIVE NAV LINK ON SCROLL ==========
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        function updateActiveNavLink() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        // ========== SCROLL TRIGGER ANIMATIONS ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-scale').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== CONTACT FORM HANDLING ==========
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            const button = this.querySelector('.form-submit');
+            const originalText = button.textContent;
+            button.textContent = 'Se trimite...';
+            button.disabled = true;
+        });
+
+        // ========== KEYBOARD NAVIGATION ENHANCEMENT ==========
+        document.addEventListener('keydown', function(e) {
+            // Skip to main content with Ctrl+1
+            if (e.ctrlKey && e.key === '1') {
+                document.querySelector('main').focus();
+                document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
